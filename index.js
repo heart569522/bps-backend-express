@@ -38,7 +38,7 @@ app.get("/api", (req, res) => {
   res.send("Hello BPS");
 });
 
-cron.schedule("*/30 * * * *", () => {
+cron.schedule("*/5 * * * *", () => {
   fetchScripts.runAllFetchScripts();
 });
 
