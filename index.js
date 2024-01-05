@@ -37,7 +37,7 @@ app.use("/api/api6", api6Routes);
 
 app.get("/cron", (req, res) => {
   runCronJob();
-  res.send("Cron job triggered");
+  res.send("Cron job can running!");
 });
 
 app.get("/api", (req, res) => {
