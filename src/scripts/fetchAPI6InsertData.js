@@ -6,7 +6,8 @@ const fetchAPI6InsertData = async () => {
 
   try {
     const response = await axios.get(
-      "https://ebox.embedig.com/api.php?hwid=5729708&token=NTcyOTcwOC1lYm94&s201&s202&s203&s204&s205&s206&s207&s208&s209&s210"
+      "https://ebox.embedig.com/api.php?hwid=5729708&token=NTcyOTcwOC1lYm94&s201&s202&s203&s204&s205&s206&s207&s208&s209&s210",
+      { timeout: 4000 }
     );
 
     if (
@@ -39,7 +40,27 @@ const fetchAPI6InsertData = async () => {
       console.log("Data 0 inserted successfully. ID:", api6Id);
     }
   } catch (error) {
-    console.error("Error fetching and inserting data:", error.message);
+    if (error.code === "ECONNABORTED") {
+      console.error("Request timed out:", error.message);
+
+      const data = {
+        datetime: "0",
+        s201: "0",
+        s202: "0",
+        s203: "0",
+        s204: "0",
+        s205: "0",
+        s206: "0",
+        s207: "0",
+        s208: "0",
+        s209: "0",
+        s210: "0",
+      };
+      api6Id = await api6Model.createApi6(data);
+      console.log("Data 0 inserted due to timeout. ID:", api6Id);
+    } else {
+      console.error("Error fetching and inserting data:", error.message);
+    }
   }
 };
 
