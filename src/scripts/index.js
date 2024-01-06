@@ -6,12 +6,19 @@ const { fetchAPI5InsertData } = require("./fetchAPI5InsertData");
 const { fetchAPI6InsertData } = require("./fetchAPI6InsertData");
 
 const runAllFetchScripts = async () => {
-  await fetchAPI1InsertData();
-  await fetchAPI2InsertData();
-  await fetchAPI3InsertData();
-  await fetchAPI4InsertData();
-  await fetchAPI5InsertData();
-  await fetchAPI6InsertData();
+  try {
+    await fetchAPI1InsertData();
+    await fetchAPI2InsertData();
+    await fetchAPI3InsertData();
+    await fetchAPI4InsertData();
+    await fetchAPI5InsertData();
+    await fetchAPI6InsertData();
+
+    return { success: true, message: "Fetch scripts completed successfully" };
+  } catch (error) {
+    console.error("Error fetching scripts:", error.message);
+    return { success: false, message: "Error fetching scripts" };
+  }
 };
 
 module.exports = {

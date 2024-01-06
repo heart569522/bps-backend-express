@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const mysql = require('mysql2')
+const mysql = require("mysql2");
 const cors = require("cors");
 // const cron = require("node-cron");
 const { dbConfig } = require("./db");
@@ -35,17 +35,23 @@ app.use("/api/api4", api4Routes);
 app.use("/api/api5", api5Routes);
 app.use("/api/api6", api6Routes);
 
-app.get("/cron", (req, res) => {
-  runCronJob();
-  res.send("Cron job can running!");
+app.get("/cron", async (req, res) => {
+  try {
+    const result = await runCronJob();
+    res.send(result);
+  } catch (error) {
+    console.error("Error running cron job:", error.message);
+    res.status(500).send({ success: false, message: "Internal Server Error" });
+  }
 });
 
 app.get("/api", (req, res) => {
   res.send("Hello BPS");
 });
 
-// cron.schedule("*/3 * * * *", () => {
-//   fetchScripts.runAllFetchScripts();
+// cron.schedule("*/2 * * * *", () => {
+//   // runCronJob();
+//   console.log("Cron job executed");
 // });
 
 app.listen(port, async () => {
