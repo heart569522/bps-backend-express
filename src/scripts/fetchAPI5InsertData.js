@@ -7,7 +7,7 @@ const fetchAPI5InsertData = async () => {
   try {
     const response = await axios.get(
       "https://ebox.embedig.com/api.php?hwid=5736428&token=NTczNjQyOC1lYm94&IN1&time&p001&p002&p003&p004&p005&p006&p007&p008&p009&p010&p011&p012&p013&p014&p015&p016&p017&p018&p019&p020",
-      { timeout: 5000 }
+      { timeout: 8000 }
     );
 
     if (
