@@ -22,7 +22,7 @@ const fetchAPI1InsertData = async () => {
     } else {
       console.log("Invalid or error response:", response.data);
 
-      const data = { datetime: "0", OUT1: "0" };
+      const data = { datetime: "0", OUT1: null };
       api1Id = await api1Model.createApi1(data);
       console.log("Data 0 inserted successfully. ID:", api1Id);
     }
@@ -30,7 +30,7 @@ const fetchAPI1InsertData = async () => {
     if (error.code === "ECONNABORTED") {
       console.error("Request timed out:", error.message);
 
-      const data = { datetime: "0", OUT1: "0" };
+      const data = { datetime: "0", OUT1: null };
       api1Id = await api1Model.createApi1(data);
       console.log("Data 0 inserted due to timeout. ID:", api1Id);
     } else {

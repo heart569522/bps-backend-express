@@ -24,12 +24,12 @@ const fetchAPI4InsertData = async () => {
 
       const data = {
         datetime: "0",
-        IN1: "0",
-        IN2: "0",
-        IN3: "0",
-        IN4: "0",
-        p221: "0",
-        p222: "0",
+        IN1: null,
+        IN2: null,
+        IN3: null,
+        IN4: null,
+        p221: null,
+        p222: null,
       };
       api4Id = await api4Model.createApi4(data);
       console.log("Data 0 inserted successfully. ID:", api4Id);
@@ -40,12 +40,12 @@ const fetchAPI4InsertData = async () => {
 
       const data = {
         datetime: "0",
-        IN1: "0",
-        IN2: "0",
-        IN3: "0",
-        IN4: "0",
-        p221: "0",
-        p222: "0",
+        IN1: null,
+        IN2: null,
+        IN3: null,
+        IN4: null,
+        p221: null,
+        p222: null,
       };
       api4Id = await api4Model.createApi4(data);
       console.log("Data 0 inserted due to timeout. ID:", api4Id);

@@ -24,10 +24,10 @@ const fetchAPI2InsertData = async () => {
 
       const data = {
         datetime: "0",
-        IN1: "0",
-        IN2: "0",
-        IN3: "0",
-        IN4: "0",
+        IN1: null,
+        IN2: null,
+        IN3: null,
+        IN4: null,
       };
       api2Id = await api2Model.createApi2(data);
       console.log("Data 0 inserted successfully. ID:", api2Id);
@@ -38,10 +38,10 @@ const fetchAPI2InsertData = async () => {
 
       const data = {
         datetime: "0",
-        IN1: "0",
-        IN2: "0",
-        IN3: "0",
-        IN4: "0",
+        IN1: null,
+        IN2: null,
+        IN3: null,
+        IN4: null,
       };
       api2Id = await api2Model.createApi2(data);
       console.log("Data 0 inserted due to timeout. ID:", api2Id);

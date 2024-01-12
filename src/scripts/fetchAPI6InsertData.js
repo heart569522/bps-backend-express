@@ -24,16 +24,16 @@ const fetchAPI6InsertData = async () => {
 
       const data = {
         datetime: "0",
-        s201: "0",
-        s202: "0",
-        s203: "0",
-        s204: "0",
-        s205: "0",
-        s206: "0",
-        s207: "0",
-        s208: "0",
-        s209: "0",
-        s210: "0",
+        s201: null,
+        s202: null,
+        s203: null,
+        s204: null,
+        s205: null,
+        s206: null,
+        s207: null,
+        s208: null,
+        s209: null,
+        s210: null,
       };
 
       api6Id = await api6Model.createApi6(data);
@@ -45,16 +45,16 @@ const fetchAPI6InsertData = async () => {
 
       const data = {
         datetime: "0",
-        s201: "0",
-        s202: "0",
-        s203: "0",
-        s204: "0",
-        s205: "0",
-        s206: "0",
-        s207: "0",
-        s208: "0",
-        s209: "0",
-        s210: "0",
+        s201: null,
+        s202: null,
+        s203: null,
+        s204: null,
+        s205: null,
+        s206: null,
+        s207: null,
+        s208: null,
+        s209: null,
+        s210: null,
       };
       api6Id = await api6Model.createApi6(data);
       console.log("Data 0 inserted due to timeout. ID:", api6Id);
