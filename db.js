@@ -5,6 +5,7 @@ const dbConfig = {
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
   ssl: process.env.DB_SSL ? JSON.parse(process.env.DB_SSL) : undefined,
+  timezone: '+07:00'
 };
 
 module.exports = { dbConfig };

@@ -4,7 +4,31 @@ const { dbConfig } = require("../../db");
 const createApi5 = async (data) => {
   const connection = await mysql.createConnection(dbConfig);
   try {
-    const [results] = await connection.query("INSERT INTO api5 SET ?", data);
+    const sql = "INSERT INTO api5 (datetime, p001, p002, p003, p004, p005, p006, p007, p008, p009, p010, p011, p012, p013, p014, p015, p016, p017, p018, p019, p020, record_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CONVERT_TZ(NOW(), 'UTC', 'Asia/Bangkok'))";
+
+    const [results] = await connection.query(sql, [
+      data.datetime,
+      data.p001,
+      data.p002,
+      data.p003,
+      data.p004,
+      data.p005,
+      data.p006,
+      data.p007,
+      data.p008,
+      data.p009,
+      data.p010,
+      data.p011,
+      data.p012,
+      data.p013,
+      data.p014,
+      data.p015,
+      data.p016,
+      data.p017,
+      data.p018,
+      data.p019,
+      data.p020,
+    ]);
     return results.insertId;
   } finally {
     await connection.end();

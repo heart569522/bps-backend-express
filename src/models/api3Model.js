@@ -4,7 +4,9 @@ const { dbConfig } = require("../../db");
 const createApi3 = async (data) => {
   const connection = await mysql.createConnection(dbConfig);
   try {
-    const [results] = await connection.query("INSERT INTO api3 SET ?", data);
+    const sql = "INSERT INTO api3 (datetime, IN1, IN2, IN3, IN4, OUT4, record_at) VALUES (?, ?, ?, ?, ?, ?, CONVERT_TZ(NOW(), 'UTC', 'Asia/Bangkok'))";
+
+    const [results] = await connection.query(sql, [data.datetime, data.IN1, data.IN2, data.IN3, data.IN4, data.OUT4]);
     return results.insertId;
   } finally {
     await connection.end();
