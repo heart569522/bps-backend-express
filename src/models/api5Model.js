@@ -30,6 +30,7 @@ const createApi5 = async (data) => {
       data.p019,
       parseFloat(data.p020)
     ]);
+    console.log("🚀 ~ createApi5 ~ results:", results)
     return results.insertId;
   } catch (error) {
     console.error("Error during database operation:", error);
