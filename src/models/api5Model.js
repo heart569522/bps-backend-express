@@ -28,7 +28,7 @@ const createApi5 = async (data) => {
       data.p017,
       data.p018,
       data.p019,
-      data.p020,
+      parseFloat(data.p020)
     ]);
     return results.insertId;
   } catch (error) {
