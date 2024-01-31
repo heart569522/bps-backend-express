@@ -4,7 +4,8 @@ const { dbConfig } = require("../../db");
 const createApi5 = async (data) => {
   const connection = await mysql.createConnection(dbConfig);
   try {
-    const sql = "INSERT INTO api5 (datetime, p001, p002, p003, p004, p005, p006, p007, p008, p009, p010, p011, p012, p013, p014, p015, p016, p017, p018, p019, p020, record_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CONVERT_TZ(NOW(), 'UTC', 'Asia/Bangkok'))";
+    const sql =
+      "INSERT INTO api5 (datetime, p001, p002, p003, p004, p005, p006, p007, p008, p009, p010, p011, p012, p013, p014, p015, p016, p017, p018, p019, p020, record_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CONVERT_TZ(NOW(), 'UTC', 'Asia/Bangkok'))";
 
     const [results] = await connection.query(sql, [
       data.datetime,
@@ -30,6 +31,8 @@ const createApi5 = async (data) => {
       data.p020,
     ]);
     return results.insertId;
+  } catch (error) {
+    console.error("Error during database operation:", error);
   } finally {
     await connection.end();
   }
