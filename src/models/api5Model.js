@@ -28,7 +28,7 @@ const createApi5 = async (data) => {
       data.p017,
       data.p018,
       data.p019,
-      parseFloat(data.p020)
+      parseFloat(data.p020).toFixed(4)
     ]);
     console.log("🚀 ~ createApi5 ~ results:", results)
     return results.insertId;
